@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "title": "Magnitude and phase of an RC low-pass filter",
+  "description": "A first-order low-pass transfer function H(jω) = 1/(1 + jωRC).",
+  "course": "Signals and systems",
+  "assumptions": [
+    "R = 1000 Ω and C = 1 μF, so ωc = 1000 rad/s.",
+    "Horizontal coordinate x = log₁₀(ω / (1 rad/s)).",
+    "Magnitude uses 20 log₁₀|H|; phase is in degrees."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "At x = 3, ω = 1000 rad/s and the gain is −3.0103 dB.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Magnitude response",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 6,
+          "label": "log₁₀ ω (rad/s)"
+        },
+        "curves": [
+          {
+            "expr": "-10*log(1+(10^x*0.001)^2)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": -65,
+          "max": 3,
+          "label": "Magnitude (dB)"
+        }
+      }
+    },
+    {
+      "id": "fig2",
+      "caption": "At the cutoff the phase is −45°. The phase approaches −90° at high frequency.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Phase response",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 6,
+          "label": "log₁₀ ω (rad/s)"
+        },
+        "curves": [
+          {
+            "expr": "-atan(10^x*0.001)*180/pi",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": -95,
+          "max": 5,
+          "label": "Phase (degrees)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Magnitude at cutoff",
+      "curve": 0,
+      "at": {
+        "x": 3
+      },
+      "expected": -3.010299956639812,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig2",
+      "kind": "value",
+      "label": "Phase at cutoff",
+      "curve": 0,
+      "at": {
+        "x": 3
+      },
+      "expected": -45,
+      "tolerance": 1e-8
+    }
+  ]
+}

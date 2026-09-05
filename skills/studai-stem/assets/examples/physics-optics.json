@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "title": "A converging lens relates object and image distances",
+  "description": "Use the thin-lens equation for a positive focal length.",
+  "course": "Optics",
+  "assumptions": [
+    "f = 0.1 m; object distance x is measured from the lens and is positive for a real object.",
+    "Image distance = fx/(x − f). Positive values indicate a real image under this convention."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "At twice the focal length, the image is also at twice the focal length. The focal point is a pole, not a connecting segment.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Image distance versus object distance",
+        "x": {
+          "var": "x",
+          "min": 0.02,
+          "max": 0.4,
+          "label": "Object distance (m)"
+        },
+        "curves": [
+          {
+            "expr": "0.1*x/(x-0.1)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": -0.5,
+          "max": 0.5,
+          "label": "Image distance (m)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Object at 2f gives image at 2f",
+      "curve": 0,
+      "at": {
+        "x": 0.2
+      },
+      "expected": 0.2,
+      "tolerance": 1e-8
+    }
+  ]
+}

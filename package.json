@@ -1,0 +1,28 @@
+{
+  "name": "studai-stem",
+  "version": "0.1.0",
+  "description": "Reproducible STEM illustrations for Claude Code and Codex",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node --test tests/browser.test.mjs",
+    "examples": "node scripts/generate-examples.mjs",
+    "gallery": "node scripts/gallery.mjs",
+    "check": "npm run build && npm test && npm run gallery"
+  },
+  "dependencies": {
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12",
+    "playwright": "1.63.0",
+    "prettier": "3.9.6"
+  }
+}

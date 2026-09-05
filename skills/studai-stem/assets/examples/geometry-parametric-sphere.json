@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "title": "A sphere from two angular parameters",
+  "description": "Use longitude u and polar angle v to parameterize the unit sphere.",
+  "course": "Vector calculus and geometry",
+  "assumptions": [
+    "x = cos(u)sin(v), y = sin(u)sin(v), z = cos(v).",
+    "0 ≤ u ≤ 2π and 0 ≤ v ≤ π, in radians.",
+    "The mesh is an approximation to a smooth surface."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Every exact parameterized point satisfies x² + y² + z² = 1. Rotate the view to inspect the poles and seam; no built-in parametric-surface identity check is claimed.",
+      "spec": {
+        "v": 1,
+        "kind": "surface3d",
+        "title": "Unit sphere",
+        "xRange": [-1, 1],
+        "yRange": [-1, 1],
+        "zRange": [-1, 1],
+        "aspect": "data",
+        "surfaces": [
+          {
+            "x": "cos(u)*sin(v)",
+            "y": "sin(u)*sin(v)",
+            "z": "cos(v)",
+            "uRange": [0, 6.283185307179586],
+            "vRange": [0, 3.141592653589793],
+            "color": "evTeal"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

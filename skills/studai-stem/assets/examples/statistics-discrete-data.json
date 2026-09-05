@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "title": "Show supplied observations without interpolation",
+  "description": "A small frequency table as a bar chart.",
+  "course": "Statistics",
+  "assumptions": [
+    "These are illustrative counts, not collected study data.",
+    "Categories are discrete outcomes."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Bar height is the count in each category. The chart does not imply a continuous probability density.",
+      "spec": {
+        "v": 1,
+        "kind": "chart",
+        "chartType": "bar",
+        "title": "Observed frequencies",
+        "labels": ["0", "1", "2", "3"],
+        "series": [
+          {
+            "name": "Count",
+            "data": [4, 9, 5, 2]
+          }
+        ],
+        "x": {
+          "label": "Outcome"
+        },
+        "y": {
+          "label": "Count"
+        }
+      }
+    }
+  ],
+  "checks": []
+}

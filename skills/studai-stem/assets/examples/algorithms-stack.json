@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "title": "A stack checks bracket nesting",
+  "description": "Step through a deterministic bracket-matching algorithm.",
+  "course": "Data structures",
+  "assumptions": [
+    "Only (), [] and {} affect the stack.",
+    "Other supported characters are skipped."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Step forward to see pushes, pops and the first mismatch. The algorithm computes its trace from the input string.",
+      "spec": {
+        "v": 1,
+        "kind": "bracket-sim",
+        "title": "Balanced brackets",
+        "input": "{[(a+b)*c]}",
+        "examples": ["()", "(()", "[)", "{[()]}"]
+      }
+    }
+  ],
+  "checks": []
+}

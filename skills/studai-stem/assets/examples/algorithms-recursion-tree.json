@@ -1,0 +1,58 @@
+{
+  "version": 1,
+  "title": "A recursion tree for merge sort",
+  "description": "A structural split tree for an input of size eight.",
+  "course": "Algorithms",
+  "assumptions": [
+    "The drawing shows subproblem sizes, not measured execution times.",
+    "Children are listed in left-to-right order; this is not a search tree."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "At each shown level, the subproblem sizes sum to eight. The omitted size-one level completes the recursion; this is a supplied trace rather than executed code.",
+      "spec": {
+        "v": 1,
+        "kind": "tree",
+        "title": "Divide into two halves",
+        "nodes": [
+          {
+            "id": "r",
+            "label": "n = 8"
+          },
+          {
+            "id": "a",
+            "parent": "r",
+            "label": "4"
+          },
+          {
+            "id": "b",
+            "parent": "r",
+            "label": "4"
+          },
+          {
+            "id": "c",
+            "parent": "a",
+            "label": "2"
+          },
+          {
+            "id": "d",
+            "parent": "a",
+            "label": "2"
+          },
+          {
+            "id": "e",
+            "parent": "b",
+            "label": "2"
+          },
+          {
+            "id": "f",
+            "parent": "b",
+            "label": "2"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

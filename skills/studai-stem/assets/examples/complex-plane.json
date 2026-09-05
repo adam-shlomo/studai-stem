@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "title": "Complex multiplication rotates the plane",
+  "description": "Multiplication by i is a 90° counterclockwise rotation.",
+  "course": "Complex analysis",
+  "assumptions": [
+    "Re(z) is the horizontal axis; Im(z) is vertical.",
+    "The transformation acts on the real coordinate pair (Re z, Im z)."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The complex number 2 + i becomes −1 + 2i. Length and area are preserved.",
+      "spec": {
+        "v": 1,
+        "kind": "transform2d",
+        "title": "z ↦ iz",
+        "matrix": [
+          [0, -1],
+          [1, 0]
+        ],
+        "vectors": [
+          {
+            "x": 2,
+            "y": 1,
+            "label": "z"
+          }
+        ],
+        "show": {
+          "basis": true,
+          "grid": true,
+          "unitCircle": true
+        },
+        "range": 3
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "matrix-vector",
+      "label": "i(2 + i) = −1 + 2i",
+      "vector": [2, 1],
+      "expected": [-1, 2]
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "determinant",
+      "label": "Area preserved",
+      "expected": 1
+    }
+  ]
+}

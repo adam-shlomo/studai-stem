@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "title": "A full adder from logic gates",
+  "description": "Three input bits produce sum and carry.",
+  "course": "Digital logic",
+  "assumptions": [
+    "Inputs are listed A, B, Cin. Truth-table rows use that order from 000 to 111.",
+    "This is combinational Boolean logic; propagation delay and analog voltage levels are outside the model."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Toggle each input and compare the outputs with binary addition. Every truth-table row is checked.",
+      "spec": {
+        "v": 1,
+        "kind": "logic-circuit",
+        "title": "One-bit full adder",
+        "inputs": [
+          {
+            "id": "A"
+          },
+          {
+            "id": "B"
+          },
+          {
+            "id": "Cin"
+          }
+        ],
+        "gates": [
+          {
+            "id": "xor1",
+            "type": "xor",
+            "inputs": ["A", "B"]
+          },
+          {
+            "id": "sum",
+            "type": "xor",
+            "inputs": ["xor1", "Cin"]
+          },
+          {
+            "id": "ab",
+            "type": "and",
+            "inputs": ["A", "B"]
+          },
+          {
+            "id": "cx",
+            "type": "and",
+            "inputs": ["Cin", "xor1"]
+          },
+          {
+            "id": "carry",
+            "type": "or",
+            "inputs": ["ab", "cx"]
+          }
+        ],
+        "outputs": [
+          {
+            "from": "sum",
+            "label": "Sum"
+          },
+          {
+            "from": "carry",
+            "label": "Cout"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "logic-table",
+      "label": "Full-adder truth table",
+      "expected": [
+        [0, 0],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+        [1, 0],
+        [0, 1],
+        [0, 1],
+        [1, 1]
+      ],
+      "tolerance": 0
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "title": "Compare growth rates",
+  "description": "Representative operation counts for n, n log₂ n, and n².",
+  "course": "Algorithms",
+  "assumptions": [
+    "n is a continuous visual proxy for integer input size.",
+    "Constants are 1 in this comparison; it is not a benchmark."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "At n = 8, the curves have values 8, 24, and 64. Big-O classes alone do not predict wall-clock runtime.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Growth with input size",
+        "x": {
+          "var": "x",
+          "min": 1,
+          "max": 16,
+          "label": "Input size n"
+        },
+        "curves": [
+          {
+            "expr": "x",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "x*ln(x)/ln(2)",
+            "label": "g",
+            "color": "evTeal"
+          },
+          {
+            "expr": "x^2",
+            "label": "h",
+            "color": "warning"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Linear at n = 8",
+      "curve": 0,
+      "at": {
+        "x": 8
+      },
+      "expected": 8,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "n log₂ n at n = 8",
+      "curve": 1,
+      "at": {
+        "x": 8
+      },
+      "expected": 24,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Quadratic at n = 8",
+      "curve": 2,
+      "at": {
+        "x": 8
+      },
+      "expected": 64,
+      "tolerance": 1e-8
+    }
+  ]
+}

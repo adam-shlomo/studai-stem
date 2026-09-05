@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "title": "Wavefunction and probability density",
+  "description": "The ground state of a one-dimensional infinite square well of width 1.",
+  "course": "Quantum mechanics",
+  "assumptions": [
+    "0 ≤ x ≤ 1 in normalized length units.",
+    "ψ₁(x) = √2 sin(πx); ψ is real for this chosen stationary-state convention.",
+    "The probability density is |ψ|², not ψ."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The wavefunction vanishes at both walls. The density integrates to one.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Ground state in an infinite well",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 1,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "sqrt(2)*sin(pi*x)",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "2*sin(pi*x)^2",
+            "label": "g",
+            "color": "evTeal"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Left-wall boundary",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Right-wall boundary",
+      "curve": 0,
+      "at": {
+        "x": 1
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "integral",
+      "label": "Probability normalization",
+      "curve": 1,
+      "from": 0,
+      "to": 1,
+      "expected": 1,
+      "tolerance": 1e-7
+    }
+  ]
+}

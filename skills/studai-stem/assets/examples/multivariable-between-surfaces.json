@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "title": "Volume between surfaces",
+  "description": "Integrate the height difference over a rectangular base.",
+  "course": "Multivariable calculus",
+  "assumptions": [
+    "0 ≤ x ≤ 1 and 0 ≤ y ≤ 2.",
+    "Upper surface 3 + x; lower surface x."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The height is 3 everywhere on a base of area 2, so the volume is 6.",
+      "spec": {
+        "v": 1,
+        "kind": "surface3d",
+        "title": "A constant vertical separation",
+        "xRange": [0, 1.2],
+        "yRange": [0, 2.2],
+        "zRange": [0, 4.5],
+        "aspect": "data",
+        "surfaces": [
+          {
+            "expr": "3+x",
+            "color": "accent"
+          },
+          {
+            "expr": "x",
+            "color": "evTeal"
+          }
+        ],
+        "region": {
+          "base": {
+            "type": "rect",
+            "x": [0, 1],
+            "y": [0, 2]
+          },
+          "surface": "3+x",
+          "lower": "x",
+          "label": "D"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "double-integral",
+      "label": "Volume = 6",
+      "expected": 6,
+      "tolerance": 0.000001
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "title": "A vertical asymptote is a gap",
+  "description": "The reciprocal function has two branches separated by x = 0.13.",
+  "course": "Calculus I",
+  "assumptions": [
+    "The function is undefined at x = 0.13.",
+    "A finite plot window clips large values; it does not bound the function."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The branches must not be connected through the vertical asymptote. Check both sides of the pole.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Reciprocal with an offset pole",
+        "x": {
+          "var": "x",
+          "min": -2,
+          "max": 2,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "1/(x-0.13)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": -10,
+          "max": 10,
+          "label": "f(x)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Right of pole",
+      "curve": 0,
+      "at": {
+        "x": 1.13
+      },
+      "expected": 1,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Left of pole",
+      "curve": 0,
+      "at": {
+        "x": -0.87
+      },
+      "expected": -1,
+      "tolerance": 1e-8
+    }
+  ]
+}

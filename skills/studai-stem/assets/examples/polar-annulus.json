@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "title": "An annular sector in polar coordinates",
+  "description": "Show 1 ≤ r ≤ 2 and 0 ≤ θ ≤ π/2.",
+  "course": "Multivariable calculus",
+  "assumptions": [
+    "θ is measured counterclockwise in radians.",
+    "Equal axis scales preserve circles and angles."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Both curved boundaries are circular arcs, not polygon chords. The area is 3π/4; this figure is schematic and has no built-in area assertion.",
+      "spec": {
+        "v": 1,
+        "kind": "geometry2d",
+        "title": "Quarter annulus",
+        "xRange": [-0.4, 2.4],
+        "yRange": [-0.4, 2.4],
+        "items": [
+          {
+            "type": "sector",
+            "r1": 1,
+            "r2": 2,
+            "theta1": 0,
+            "theta2": 1.5707963267948966,
+            "label": "D"
+          }
+        ],
+        "grid": "polar",
+        "xLabel": "x",
+        "yLabel": "y"
+      }
+    }
+  ],
+  "checks": []
+}

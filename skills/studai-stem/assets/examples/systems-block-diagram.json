@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "title": "A feed-forward signal chain",
+  "description": "A schematic from input to plant output.",
+  "course": "Control systems",
+  "assumptions": [
+    "Arrows indicate signal flow.",
+    "Block labels do not execute transfer functions or prove closed-loop stability."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "For this feed-forward chain under compatible zero-state LTI assumptions, Y(s) = P(s)C(s)U(s). No feedback loop is shown.",
+      "spec": {
+        "v": 1,
+        "kind": "diagram",
+        "title": "Signal path",
+        "nodes": [
+          {
+            "id": "u",
+            "label": "Input u",
+            "x": 0.1,
+            "y": 0.5
+          },
+          {
+            "id": "c",
+            "label": "Controller C(s)",
+            "x": 0.4,
+            "y": 0.5
+          },
+          {
+            "id": "p",
+            "label": "Plant P(s)",
+            "x": 0.7,
+            "y": 0.5
+          },
+          {
+            "id": "y",
+            "label": "Output y",
+            "x": 0.95,
+            "y": 0.5
+          }
+        ],
+        "edges": [
+          {
+            "from": "u",
+            "to": "c"
+          },
+          {
+            "from": "c",
+            "to": "p"
+          },
+          {
+            "from": "p",
+            "to": "y"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "title": "An isotherm on a pressure-volume diagram",
+  "description": "For an ideal gas at fixed temperature, pressure is inversely proportional to volume.",
+  "course": "Thermodynamics",
+  "assumptions": [
+    "nRT = 1 J.",
+    "Volume x is in m³; pressure is in Pa.",
+    "The path is quasistatic and isothermal."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Expansion from 1 to 2 m³ does work W = ∫P dV = ln(2) J under the stated normalization.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Ideal-gas isotherm",
+        "x": {
+          "var": "x",
+          "min": 1,
+          "max": 3,
+          "label": "Volume (m³)"
+        },
+        "curves": [
+          {
+            "expr": "1/x",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": 0,
+          "max": 1.2,
+          "label": "Pressure (Pa)"
+        },
+        "regions": [
+          {
+            "type": "under",
+            "curve": 0,
+            "from": 1,
+            "to": 2,
+            "label": "Work by gas"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "integral",
+      "label": "Isothermal expansion work",
+      "curve": 0,
+      "from": 1,
+      "to": 2,
+      "expected": 0.6931471805599453,
+      "tolerance": 1e-7
+    }
+  ]
+}

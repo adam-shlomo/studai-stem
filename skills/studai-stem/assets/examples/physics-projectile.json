@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "title": "A projectile in uniform gravity",
+  "description": "The trajectory of a projectile launched at 10 m/s and 45°.",
+  "course": "Mechanics",
+  "assumptions": [
+    "No air drag; flat ground; launch height zero.",
+    "g = 9.81 m/s².",
+    "Coordinates are meters; the curve parameter t is seconds."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The trajectory ends at the analytical flight time, approximately 1.4416 s. The horizontal range is approximately 10.1937 m.",
+      "spec": {
+        "v": 1,
+        "kind": "geometry2d",
+        "title": "Projectile path",
+        "xRange": [-1, 11],
+        "yRange": [-1, 4],
+        "items": [
+          {
+            "type": "parametric",
+            "x": "10*cos(pi/4)*t",
+            "y": "10*sin(pi/4)*t-9.81*t^2/2",
+            "t": [0, 1.4416040391163047],
+            "trace": true,
+            "label": "Trajectory"
+          },
+          {
+            "type": "point",
+            "x": 0,
+            "y": 0,
+            "label": "Launch"
+          },
+          {
+            "type": "point",
+            "x": 10.19367991845056,
+            "y": 0,
+            "label": "Landing"
+          }
+        ],
+        "xLabel": "x (m)",
+        "yLabel": "y (m)"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "distance",
+      "label": "Launch-to-landing range",
+      "items": [1, 2],
+      "expected": 10.19367991845056,
+      "tolerance": 1e-8
+    }
+  ]
+}

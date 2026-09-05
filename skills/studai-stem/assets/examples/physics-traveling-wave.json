@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "title": "A wave traveling to the right",
+  "description": "Use the phase slider to move y = sin(x − φ).",
+  "course": "Waves",
+  "assumptions": [
+    "x and φ are dimensionless phase coordinates in radians.",
+    "Increasing φ corresponds to later time when angular frequency is positive."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Points of constant phase move toward increasing x. Animation starts only after pressing Play.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Traveling sine wave",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 12.566370614359172,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "sin(x-phi)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "params": [
+          {
+            "var": "phi",
+            "min": 0,
+            "max": 6.283185307179586,
+            "default": 0,
+            "step": 0.02,
+            "label": "Phase",
+            "unit": "rad"
+          }
+        ],
+        "animate": {
+          "param": "phi",
+          "period": 5,
+          "loop": "cycle"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Initial zero crossing",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    }
+  ]
+}

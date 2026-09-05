@@ -1,0 +1,33 @@
+name: Validate skill and illustrations
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: npm test
+      - run: npm run gallery
+      - name: Verify committed runtime matches source
+        run: git diff --exit-code -- skills/studai-stem/scripts/runtime
+      - uses: astral-sh/setup-uv@v6
+      - name: Check scientific recipes
+        run: |
+          mkdir -p outputs/scientific
+          for recipe in symbolic bode dipole ode fft dc-circuit; do
+            uv run --locked --script skills/studai-stem/scripts/scientific.py "$recipe" --out "outputs/scientific/$recipe"
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: example-atlas
+          path: outputs/gallery

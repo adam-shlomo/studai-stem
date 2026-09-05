@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "title": "A convex quadratic surface",
+  "description": "Visualize f(x,y) = x² + 2y².",
+  "course": "Optimization",
+  "assumptions": [
+    "The Hessian is diag(2, 4), positive definite.",
+    "The unique minimizer is at the origin."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The surface rises more steeply along y than x. Equal physical scale is used for all three axes.",
+      "spec": {
+        "v": 1,
+        "kind": "surface3d",
+        "title": "Convex quadratic",
+        "xRange": [-2, 2],
+        "yRange": [-2, 2],
+        "zRange": [0, 12],
+        "aspect": "data",
+        "surfaces": [
+          {
+            "expr": "x^2+2*y^2",
+            "color": "evTeal"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Minimum value",
+      "surface": 0,
+      "at": {
+        "x": 0,
+        "y": 0
+      },
+      "expected": 0
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "f(1, 1)",
+      "surface": 0,
+      "at": {
+        "x": 1,
+        "y": 1
+      },
+      "expected": 3
+    }
+  ]
+}

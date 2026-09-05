@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "title": "Two references can share one object",
+  "description": "A small stack-and-heap model of aliasing.",
+  "course": "Programming and data structures",
+  "assumptions": [
+    "This is a language-neutral conceptual model.",
+    "No actual memory addresses, object sizes, or runtime guarantees are implied."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "After b = a, both references point to the same object. The display uses an authored trace; it does not execute a programming language.",
+      "spec": {
+        "v": 1,
+        "kind": "memory-sim",
+        "title": "Reference aliasing",
+        "code": ["a = new Box()", "b = a"],
+        "frames": [
+          {
+            "id": "main",
+            "label": "main"
+          }
+        ],
+        "slots": [
+          {
+            "id": "a",
+            "frame": "main",
+            "label": "a",
+            "type": "reference"
+          },
+          {
+            "id": "b",
+            "frame": "main",
+            "label": "b",
+            "type": "reference"
+          }
+        ],
+        "objects": [
+          {
+            "id": "box",
+            "label": "Box"
+          }
+        ],
+        "refs": [
+          {
+            "id": "ra",
+            "from": "a",
+            "to": "box"
+          },
+          {
+            "id": "rb",
+            "from": "b",
+            "to": "box"
+          }
+        ],
+        "steps": [
+          {
+            "line": 0,
+            "caption": "a refers to one Box",
+            "show": ["main", "a", "box", "ra"],
+            "focus": ["a", "box"]
+          },
+          {
+            "line": 1,
+            "caption": "b shares the same Box",
+            "show": ["main", "a", "b", "box", "ra", "rb"],
+            "focus": ["b", "rb"]
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

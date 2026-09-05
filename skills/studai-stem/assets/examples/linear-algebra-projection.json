@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "title": "A projection loses a dimension",
+  "description": "Project the plane onto the x axis.",
+  "course": "Linear algebra",
+  "assumptions": [
+    "A = diag(1, 0).",
+    "A singular transformation is valid and must not be replaced by the identity."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Every point (x, y) becomes (x, 0). The unit circle collapses to a line segment, and the area factor is zero.",
+      "spec": {
+        "v": 1,
+        "kind": "transform2d",
+        "title": "Projection onto x",
+        "matrix": [
+          [1, 0],
+          [0, 0]
+        ],
+        "vectors": [
+          {
+            "x": 2,
+            "y": 1,
+            "label": "v"
+          }
+        ],
+        "show": {
+          "grid": true,
+          "basis": true,
+          "unitCircle": true
+        },
+        "range": 3
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "matrix-vector",
+      "label": "Projection of (2, 1)",
+      "vector": [2, 1],
+      "expected": [2, 0]
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "determinant",
+      "label": "Singular determinant",
+      "expected": 0
+    }
+  ]
+}

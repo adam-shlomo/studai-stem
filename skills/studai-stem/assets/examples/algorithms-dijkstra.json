@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "title": "Compute the path before highlighting it",
+  "description": "The shortest route from A to D in a weighted undirected graph.",
+  "course": "Algorithms",
+  "assumptions": [
+    "All edge weights are nonnegative.",
+    "Edge length in the drawing does not encode weight.",
+    "Ties use lexical node-ID ordering."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Dijkstra finds A → C → B → D with total cost 4. The verifier checks the displayed highlighted edges against the computed path.",
+      "spec": {
+        "v": 1,
+        "kind": "graph",
+        "title": "Weighted graph",
+        "directed": false,
+        "nodes": [
+          {
+            "id": "A",
+            "label": "A"
+          },
+          {
+            "id": "B",
+            "label": "B"
+          },
+          {
+            "id": "C",
+            "label": "C"
+          },
+          {
+            "id": "D",
+            "label": "D"
+          }
+        ],
+        "edges": [
+          {
+            "from": "A",
+            "to": "B",
+            "weight": 5
+          },
+          {
+            "from": "A",
+            "to": "C",
+            "weight": 1
+          },
+          {
+            "from": "C",
+            "to": "B",
+            "weight": 2
+          },
+          {
+            "from": "B",
+            "to": "D",
+            "weight": 1
+          },
+          {
+            "from": "C",
+            "to": "D",
+            "weight": 8
+          }
+        ],
+        "highlight": {
+          "nodes": ["A", "C", "B", "D"],
+          "edges": [
+            ["A", "C"],
+            ["C", "B"],
+            ["B", "D"]
+          ]
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "shortest-path",
+      "label": "Shortest A → D path",
+      "from": "A",
+      "to": "D",
+      "expectedDistance": 4,
+      "expectedPath": ["A", "C", "B", "D"]
+    }
+  ]
+}

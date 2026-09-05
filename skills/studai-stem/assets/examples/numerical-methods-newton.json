@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "title": "One Newton step is a tangent intercept",
+  "description": "Approximate √2 starting from x₀ = 1.5.",
+  "course": "Numerical methods",
+  "assumptions": ["f(x) = x² − 2.", "The tangent at x₀ = 1.5 is 3x − 4.25."],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The tangent crosses zero at x₁ = 17/12, approximately 1.416667. This is one iteration, not a convergence proof.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Newton step for √2",
+        "x": {
+          "var": "x",
+          "min": 1,
+          "max": 2,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "x^2-2",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "3*x-4.25",
+            "label": "g",
+            "color": "evTeal"
+          }
+        ],
+        "y": {
+          "min": -1,
+          "max": 2,
+          "label": "y"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Initial residual",
+      "curve": 0,
+      "at": {
+        "x": 1.5
+      },
+      "expected": 0.25,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Tangent root",
+      "curve": 1,
+      "at": {
+        "x": 1.4166666666666667
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    }
+  ]
+}

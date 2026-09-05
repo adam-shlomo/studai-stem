@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "title": "Probability is area under a density",
+  "description": "A standard normal variable between −1 and 1.",
+  "course": "Probability and statistics",
+  "assumptions": [
+    "X ~ N(0, 1).",
+    "A density height is not a point probability."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The shaded area is approximately 0.68268949. This probability check integrates the displayed density over the stated interval.",
+      "spec": {
+        "v": 1,
+        "kind": "distribution",
+        "title": "Standard normal density",
+        "dist": "normal",
+        "params": {
+          "mu": 0,
+          "sigma": 1
+        },
+        "shade": {
+          "from": -1,
+          "to": 1,
+          "label": "P(−1 ≤ X ≤ 1)"
+        },
+        "marks": [
+          {
+            "x": -1,
+            "label": "−1"
+          },
+          {
+            "x": 1,
+            "label": "1"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "probability",
+      "label": "Central probability",
+      "from": -1,
+      "to": 1,
+      "expected": 0.6826894921370859,
+      "tolerance": 1e-7
+    }
+  ]
+}

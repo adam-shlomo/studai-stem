@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "title": "A slope field for logistic growth",
+  "description": "Draw the direction field y′ = y(1 − y).",
+  "course": "Differential equations",
+  "assumptions": [
+    "Independent variable x is time in normalized units.",
+    "Equilibria occur at y = 0 and y = 1."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Between the equilibria, slopes are positive. Above y = 1, slopes are negative. The field shows directions, not integrated trajectories.",
+      "spec": {
+        "v": 1,
+        "kind": "slope-field",
+        "title": "Logistic direction field",
+        "expr": "y*(1-y)",
+        "xRange": [0, 5],
+        "yRange": [-0.5, 1.5],
+        "density": 13
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Equilibrium at y = 0",
+      "at": {
+        "x": 1,
+        "y": 0
+      },
+      "expected": 0
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Equilibrium at y = 1",
+      "at": {
+        "x": 1,
+        "y": 1
+      },
+      "expected": 0
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Growth at y = 0.5",
+      "at": {
+        "x": 1,
+        "y": 0.5
+      },
+      "expected": 0.25
+    }
+  ]
+}

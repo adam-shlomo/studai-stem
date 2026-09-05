@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "title": "A small dynamic-programming table",
+  "description": "Longest common subsequence lengths for AB and AC.",
+  "course": "Algorithms",
+  "assumptions": [
+    "Rows are prefixes of AB; columns are prefixes of AC.",
+    "The empty-prefix row and column have value zero."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The final LCS length is 1. Table cells are supplied values; use an executed recurrence when adapting this example to a new pair of strings.",
+      "spec": {
+        "v": 1,
+        "kind": "table",
+        "title": "LCS prefix lengths",
+        "rows": [
+          ["", "∅", "A", "C"],
+          ["∅", "0", "0", "0"],
+          ["A", "0", "1", "1"],
+          ["B", "0", "1", "1"]
+        ],
+        "headerRow": true,
+        "headerCol": true,
+        "highlight": [
+          {
+            "r": 3,
+            "c": 3,
+            "color": "success"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

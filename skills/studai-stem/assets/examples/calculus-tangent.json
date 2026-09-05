@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "title": "A tangent is a local model",
+  "description": "Compare a parabola with its tangent at x = 1.",
+  "course": "Calculus I",
+  "assumptions": [
+    "Real x; Euclidean axes.",
+    "The tangent approximation is local; it is not the curve."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Both curves meet at (1, 1). The derivative of x² is 2x, so the tangent has slope 2 at x = 1.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Parabola and tangent",
+        "x": {
+          "var": "x",
+          "min": -1,
+          "max": 3,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "x^2",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "2*x-1",
+            "label": "g",
+            "color": "evTeal"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Parabola at tangency",
+      "curve": 0,
+      "at": {
+        "x": 1
+      },
+      "expected": 1,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Tangent at tangency",
+      "curve": 1,
+      "at": {
+        "x": 1
+      },
+      "expected": 1,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "derivative",
+      "label": "Derivative at x = 1",
+      "curve": 0,
+      "at": 1,
+      "expected": 2
+    }
+  ]
+}

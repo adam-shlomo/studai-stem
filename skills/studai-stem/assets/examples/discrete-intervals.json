@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "title": "Open and closed endpoints",
+  "description": "Represent −1 < x ≤ 3 on a number line.",
+  "course": "Discrete mathematics",
+  "assumptions": [
+    "A hollow endpoint excludes the value.",
+    "A filled endpoint includes the value."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Read the endpoint style together with the inequality. This is a structural illustration, without numerical assertions.",
+      "spec": {
+        "v": 1,
+        "kind": "numberline",
+        "title": "The interval (−1, 3]",
+        "min": -3,
+        "max": 5,
+        "intervals": [
+          {
+            "from": -1,
+            "to": 3,
+            "openFrom": true,
+            "openTo": false,
+            "label": "−1 < x ≤ 3"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

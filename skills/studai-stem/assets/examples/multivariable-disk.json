@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "title": "A solid above a disk",
+  "description": "The volume under z = 4 − x² − y² over the unit disk.",
+  "course": "Multivariable calculus",
+  "assumptions": [
+    "D: x² + y² ≤ 1.",
+    "The lower surface is z = 0; the integrand is nonnegative on D.",
+    "The polar-coordinate Jacobian r is included in the calculation."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The green cap, wall and base identify the integration domain. The exact volume is 7π/2.",
+      "spec": {
+        "v": 1,
+        "kind": "surface3d",
+        "title": "Volume over D",
+        "xRange": [-1.2, 1.2],
+        "yRange": [-1.2, 1.2],
+        "zRange": [0, 4],
+        "aspect": "data",
+        "surfaces": [
+          {
+            "expr": "4-x^2-y^2",
+            "color": "evTeal"
+          }
+        ],
+        "region": {
+          "base": {
+            "type": "ellipse",
+            "cx": 0,
+            "cy": 0,
+            "a": 1,
+            "b": 1
+          },
+          "label": "Unit disk"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "double-integral",
+      "label": "Volume = 7π/2",
+      "expected": 10.995574287564276,
+      "tolerance": 0.001
+    }
+  ]
+}

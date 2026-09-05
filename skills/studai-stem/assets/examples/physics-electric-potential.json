@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "title": "Potential along a line between equal charges",
+  "description": "Two equal positive point charges sit at x = −1 and x = 1.",
+  "course": "Electromagnetism",
+  "assumptions": [
+    "kq = 1 in normalized units.",
+    "This is a one-dimensional slice of a three-dimensional potential.",
+    "The source points are excluded from the domain."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The midpoint potential is 2 in the chosen normalization. The plot has gaps at both charges, where the point-charge idealization diverges.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Potential slice",
+        "x": {
+          "var": "x",
+          "min": -3,
+          "max": 3,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "1/abs(x+1)+1/abs(x-1)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": 0,
+          "max": 8,
+          "label": "V / (kq)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Midpoint potential",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 2,
+      "tolerance": 1e-8
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "repository": "https://github.com/adam-shlomo/studai",
+  "commit": "a00925cdf09a1eb89bf238edcbdcf5475d4f6b05",
+  "files": [
+    {
+      "source": "src/viz-spec.js",
+      "destination": "src/viz-spec.js",
+      "source_sha256": "c84bda4978f03aa443dc654c59c5d14c320cac2f205f3f75639bb0a6e63b9810"
+    },
+    {
+      "source": "src/VizWidget.jsx",
+      "destination": "src/VizWidget.jsx",
+      "source_sha256": "065b7070a7cffcafe16c7fcd13327cc7f06b4bee980e300ce137ba3927178914"
+    },
+    {
+      "source": "tests/viz-spec.test.mjs",
+      "destination": "tests/upstream-engine.test.mjs",
+      "source_sha256": "bfa45271e0a146ded634b5bf28572a845b884354ea8c19b440fbf9bacca4aeed"
+    }
+  ],
+  "adapted_fixtures": "src/viz-gallery.jsx"
+}

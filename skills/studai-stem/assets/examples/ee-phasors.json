@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "title": "Add sinusoidal quantities as phasors",
+  "description": "A geometric sum of two complex amplitudes.",
+  "course": "AC circuits",
+  "assumptions": [
+    "Peak-amplitude phasors with the exp(jωt) convention.",
+    "Both phasors have the same angular frequency.",
+    "Coordinates are volts, with equal axis scales."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The resultant has magnitude 5 V and phase atan2(4, 3), approximately 53.13°. Peak and RMS phasors must not be mixed.",
+      "spec": {
+        "v": 1,
+        "kind": "geometry2d",
+        "title": "V₁ + V₂",
+        "xRange": [-1, 5],
+        "yRange": [-1, 5],
+        "items": [
+          {
+            "type": "vector",
+            "x1": 0,
+            "y1": 0,
+            "x2": 3,
+            "y2": 0,
+            "label": "V₁ = 3",
+            "color": "accent"
+          },
+          {
+            "type": "vector",
+            "x1": 3,
+            "y1": 0,
+            "x2": 3,
+            "y2": 4,
+            "label": "V₂ = j4",
+            "color": "evTeal"
+          },
+          {
+            "type": "vector",
+            "x1": 0,
+            "y1": 0,
+            "x2": 3,
+            "y2": 4,
+            "label": "V = 3 + j4",
+            "color": "warning"
+          },
+          {
+            "type": "point",
+            "x": 0,
+            "y": 0,
+            "label": "0"
+          },
+          {
+            "type": "point",
+            "x": 3,
+            "y": 4,
+            "label": "3 + j4"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "distance",
+      "label": "Resultant magnitude",
+      "items": [3, 4],
+      "expected": 5
+    }
+  ]
+}

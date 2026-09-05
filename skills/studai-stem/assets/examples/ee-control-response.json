@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "title": "An underdamped second-order step response",
+  "description": "Unit-step response for damping ratio ζ = 0.5 and natural frequency ωn = 2 rad/s.",
+  "course": "Control systems",
+  "assumptions": [
+    "H(s) = 4/(s² + 2s + 4).",
+    "Zero initial state, unity DC gain."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The response begins at zero, overshoots the final value and settles toward one. The first peak occurs at π/√3 seconds.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Second-order step response",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 8,
+          "label": "Time (s)"
+        },
+        "curves": [
+          {
+            "expr": "1-exp(-x)*(cos(sqrt(3)*x)+sin(sqrt(3)*x)/sqrt(3))",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": 0,
+          "max": 1.3,
+          "label": "Output"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Initial output",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "First peak",
+      "curve": 0,
+      "at": {
+        "x": 1.8137993642342178
+      },
+      "expected": 1.1630335348215803,
+      "tolerance": 1e-8
+    }
+  ]
+}

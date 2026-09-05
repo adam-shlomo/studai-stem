@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "title": "A finite Fourier series approximates a square wave",
+  "description": "Compare the first one, two and three odd harmonics.",
+  "course": "Signals and systems",
+  "assumptions": [
+    "Period 2π; x is a phase angle in radians.",
+    "The target is a unit-amplitude odd square wave.",
+    "A finite partial sum has Gibbs overshoot near jumps."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The partial sums are continuous approximations. At each jump they approach the midpoint value, not either one-sided limit.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Odd-harmonic partial sums",
+        "x": {
+          "var": "x",
+          "min": -3.141592653589793,
+          "max": 3.141592653589793,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "4/pi*sin(x)",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "4/pi*(sin(x)+sin(3*x)/3)",
+            "label": "g",
+            "color": "evTeal"
+          },
+          {
+            "expr": "4/pi*(sin(x)+sin(3*x)/3+sin(5*x)/5)",
+            "label": "h",
+            "color": "warning"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "All partial sums vanish at the jump",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Third partial sum at jump",
+      "curve": 2,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    }
+  ]
+}

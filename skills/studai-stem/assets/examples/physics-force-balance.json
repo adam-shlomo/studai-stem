@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "title": "Forces on a resting block",
+  "description": "A free-body diagram with a common force scale.",
+  "course": "Mechanics",
+  "assumptions": [
+    "The block is at rest on a horizontal surface.",
+    "Mass = 1 kg, g = 9.81 m/s².",
+    "One world unit represents 5 N for every force; the body is schematic."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The normal force and weight have equal magnitude and opposite directions. Both belong to the chosen body; they are not a Newton’s-third-law pair.",
+      "spec": {
+        "v": 1,
+        "kind": "geometry2d",
+        "title": "Balanced vertical forces",
+        "xRange": [-2.5, 2.5],
+        "yRange": [-2.5, 2.5],
+        "items": [
+          {
+            "type": "polygon",
+            "points": [
+              [-0.6, -0.4],
+              [0.6, -0.4],
+              [0.6, 0.4],
+              [-0.6, 0.4]
+            ],
+            "fill": true
+          },
+          {
+            "type": "vector",
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": 1.962,
+            "label": "N = 9.81 N",
+            "color": "evTeal"
+          },
+          {
+            "type": "vector",
+            "x1": 0,
+            "y1": 0,
+            "x2": 0,
+            "y2": -1.962,
+            "label": "mg = 9.81 N",
+            "color": "warning"
+          }
+        ],
+        "grid": false,
+        "axes": false
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "force-balance",
+      "label": "Net force is zero",
+      "items": [1, 2],
+      "expected": [0, 0]
+    }
+  ]
+}

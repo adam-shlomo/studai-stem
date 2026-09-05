@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "title": "Dependencies form a directed acyclic graph",
+  "description": "A build order for four tasks.",
+  "course": "Algorithms",
+  "assumptions": [
+    "Arrows mean must finish before.",
+    "This network has no directed cycles."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Parse → Typecheck → Optimize → Emit is a valid topological ordering. Edges encode precedence, not elapsed time.",
+      "spec": {
+        "v": 1,
+        "kind": "graph",
+        "title": "Task dependencies",
+        "directed": true,
+        "nodes": [
+          {
+            "id": "Parse",
+            "label": "Parse"
+          },
+          {
+            "id": "Typecheck",
+            "label": "Typecheck"
+          },
+          {
+            "id": "Optimize",
+            "label": "Optimize"
+          },
+          {
+            "id": "Emit",
+            "label": "Emit"
+          }
+        ],
+        "edges": [
+          {
+            "from": "Parse",
+            "to": "Typecheck"
+          },
+          {
+            "from": "Typecheck",
+            "to": "Optimize"
+          },
+          {
+            "from": "Optimize",
+            "to": "Emit"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Studai STEM"
+  short_description: "Editable STEM diagrams with mathematical checks"
+  default_prompt: "Use $studai-stem to illustrate this STEM problem, verify the model and inspect the resulting figure."
+policy:
+  allow_implicit_invocation: true

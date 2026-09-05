@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "title": "The step response of an RC circuit",
+  "description": "Charging a capacitor from an ideal 5 V step.",
+  "course": "Circuits",
+  "assumptions": [
+    "R = 1000 Ω; C = 1 μF; τ = RC = 1 ms.",
+    "The initial capacitor voltage is zero; the ideal step occurs at t = 0."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The source, resistor and capacitor share a closed loop. Component labels are schematic values, not an automatically solved netlist.",
+      "spec": {
+        "v": 1,
+        "kind": "circuit",
+        "title": "Series RC charging circuit",
+        "components": [
+          {
+            "type": "battery",
+            "at": [0, 4],
+            "to": [0, 0],
+            "label": "5 V"
+          },
+          {
+            "type": "resistor",
+            "at": [0, 0],
+            "to": [4, 0],
+            "label": "R = 1 kΩ"
+          },
+          {
+            "type": "capacitor",
+            "at": [4, 0],
+            "to": [4, 4],
+            "label": "C = 1 μF"
+          },
+          {
+            "type": "wire",
+            "at": [4, 4],
+            "to": [0, 4]
+          },
+          {
+            "type": "ground",
+            "at": [0, 4]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fig2",
+      "caption": "At one time constant, the voltage is 5(1 − e⁻¹), approximately 3.1606 V.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Capacitor voltage",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 0.005,
+          "label": "Time (s)"
+        },
+        "curves": [
+          {
+            "expr": "5*(1-exp(-x/0.001))",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "y": {
+          "min": 0,
+          "max": 5.5,
+          "label": "Voltage (V)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig2",
+      "kind": "value",
+      "label": "Initial voltage",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig2",
+      "kind": "value",
+      "label": "Voltage at one time constant",
+      "curve": 0,
+      "at": {
+        "x": 0.001
+      },
+      "expected": 3.1606027941427883,
+      "tolerance": 1e-8
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "title": "How a Taylor approximation changes with distance",
+  "description": "Compare sin(x) with first- and third-order Taylor polynomials around zero.",
+  "course": "Calculus II",
+  "assumptions": ["Angles in radians.", "Polynomials are centered at x = 0."],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "All three match at the origin. The cubic follows sin(x) over a wider neighborhood, but its error grows away from zero.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Sine and local polynomials",
+        "x": {
+          "var": "x",
+          "min": -3.14,
+          "max": 3.14,
+          "label": "x"
+        },
+        "curves": [
+          {
+            "expr": "sin(x)",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "x",
+            "label": "g",
+            "color": "evTeal"
+          },
+          {
+            "expr": "x-x^3/6",
+            "label": "h",
+            "color": "warning"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "sin(0)",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Cubic at zero",
+      "curve": 2,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "derivative",
+      "label": "Sine derivative at zero",
+      "curve": 0,
+      "at": 0,
+      "expected": 1
+    }
+  ]
+}

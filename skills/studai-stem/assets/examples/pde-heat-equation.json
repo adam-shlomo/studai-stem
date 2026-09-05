@@ -1,0 +1,90 @@
+{
+  "version": 1,
+  "title": "A decaying heat-equation mode",
+  "description": "A single spatial sine mode on a rod with fixed zero-temperature ends.",
+  "course": "Partial differential equations",
+  "assumptions": [
+    "Rod length L = 1 m; diffusivity α = 0.1 m²/s.",
+    "u(x,t) = exp(−0.1π²t) sin(πx).",
+    "The plotted quantity is temperature relative to the fixed boundary temperature."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Changing time decays the amplitude while preserving the sine-shaped spatial profile. Both endpoint values remain zero.",
+      "spec": {
+        "v": 1,
+        "kind": "parametric-plot",
+        "title": "Temperature along the rod",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 1,
+          "label": "Position (m)"
+        },
+        "curves": [
+          {
+            "expr": "exp(-0.1*pi^2*t)*sin(pi*x)",
+            "label": "f",
+            "color": "accent"
+          }
+        ],
+        "params": [
+          {
+            "var": "t",
+            "min": 0,
+            "max": 5,
+            "default": 0,
+            "step": 0.05,
+            "label": "Time",
+            "unit": "s"
+          }
+        ],
+        "y": {
+          "min": 0,
+          "max": 1.1,
+          "label": "Relative temperature"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Left boundary",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Right boundary",
+      "curve": 0,
+      "at": {
+        "x": 1
+      },
+      "expected": 0,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check3",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Midpoint at t = 1",
+      "curve": 0,
+      "at": {
+        "x": 0.5,
+        "t": 1
+      },
+      "expected": 0.37270783885343794,
+      "tolerance": 1e-8
+    }
+  ]
+}

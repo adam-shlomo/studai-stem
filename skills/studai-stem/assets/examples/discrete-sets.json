@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "title": "Intersection and exclusive regions",
+  "description": "A two-set Venn diagram.",
+  "course": "Discrete mathematics",
+  "assumptions": [
+    "Circle areas are not proportional to set cardinalities.",
+    "AB denotes membership in both sets."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Each label describes a disjoint region. Cardinalities require explicit data and are not inferred from circle sizes.",
+      "spec": {
+        "v": 1,
+        "kind": "venn",
+        "title": "A and B",
+        "sets": [
+          {
+            "label": "A"
+          },
+          {
+            "label": "B"
+          }
+        ],
+        "regions": [
+          {
+            "cells": "A",
+            "label": "A only"
+          },
+          {
+            "cells": "AB",
+            "label": "A ∩ B"
+          },
+          {
+            "cells": "B",
+            "label": "B only"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}

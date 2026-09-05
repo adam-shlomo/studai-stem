@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "title": "A damped oscillation",
+  "description": "An underdamped displacement with an exponential envelope.",
+  "course": "Oscillations",
+  "assumptions": [
+    "Displacement in meters; time in seconds.",
+    "x(t) = exp(−0.2t) cos(2t), prescribed motion.",
+    "The envelope is ±exp(−0.2t)."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The amplitude decays while the oscillation continues. The initial displacement is 1 m and the initial velocity is −0.2 m/s.",
+      "spec": {
+        "v": 1,
+        "kind": "function-compare",
+        "title": "Displacement and envelope",
+        "x": {
+          "var": "x",
+          "min": 0,
+          "max": 15,
+          "label": "Time (s)"
+        },
+        "curves": [
+          {
+            "expr": "exp(-0.2*x)*cos(2*x)",
+            "label": "f",
+            "color": "accent"
+          },
+          {
+            "expr": "exp(-0.2*x)",
+            "label": "g",
+            "color": "evTeal"
+          },
+          {
+            "expr": "-exp(-0.2*x)",
+            "label": "h",
+            "color": "warning"
+          }
+        ],
+        "y": {
+          "min": -1.2,
+          "max": 1.2,
+          "label": "Displacement (m)"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "value",
+      "label": "Initial displacement",
+      "curve": 0,
+      "at": {
+        "x": 0
+      },
+      "expected": 1,
+      "tolerance": 1e-8
+    },
+    {
+      "id": "check2",
+      "diagram": "fig1",
+      "kind": "derivative",
+      "label": "Initial velocity",
+      "curve": 0,
+      "at": 0,
+      "expected": -0.2,
+      "tolerance": 0.000001
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "title": "A block rests flush on an incline",
+  "description": "A geometric setup for inclined-plane problems.",
+  "course": "Mechanics",
+  "assumptions": [
+    "The slope angle is 30 degrees.",
+    "This setup omits forces; supply the free-body model before solving dynamics."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The renderer places the block on the inclined surface. The geometry alone does not determine friction, acceleration or normal force.",
+      "spec": {
+        "v": 1,
+        "kind": "geometry2d",
+        "title": "Inclined plane",
+        "xRange": [-3.5, 4],
+        "yRange": [-0.8, 4],
+        "items": [
+          {
+            "type": "ground",
+            "y": 0
+          },
+          {
+            "type": "incline",
+            "x": 3,
+            "y": 0,
+            "run": 5,
+            "angle": 30,
+            "face": "left",
+            "angleLabel": "30°",
+            "block": {
+              "at": 0.5,
+              "size": 0.65,
+              "label": "m"
+            }
+          }
+        ],
+        "grid": false,
+        "axes": false
+      }
+    }
+  ],
+  "checks": []
+}

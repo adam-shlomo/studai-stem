@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "title": "Read a type-II integration domain",
+  "description": "The triangular region 0 ≤ x ≤ y, 0 ≤ y ≤ 2.",
+  "course": "Multivariable calculus",
+  "assumptions": [
+    "Integrate with respect to x first.",
+    "The constant surface z = 1 turns the volume into the area of D."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Each horizontal slice has width y. Integrating y from 0 to 2 gives area 2.",
+      "spec": {
+        "v": 1,
+        "kind": "surface3d",
+        "title": "Type-II domain",
+        "xRange": [0, 2.2],
+        "yRange": [0, 2.2],
+        "zRange": [0, 1.2],
+        "surfaces": [
+          {
+            "expr": "1"
+          }
+        ],
+        "region": {
+          "base": {
+            "type": "between-y",
+            "y": [0, 2],
+            "left": "0",
+            "right": "y"
+          },
+          "label": "0 ≤ x ≤ y"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "double-integral",
+      "label": "Triangle area = 2",
+      "expected": 2,
+      "tolerance": 0.000001
+    }
+  ]
+}

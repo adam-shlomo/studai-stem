@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "title": "An exponential waiting time",
+  "description": "A waiting-time density with rate λ = 2 per minute.",
+  "course": "Probability and statistics",
+  "assumptions": [
+    "Time x is in minutes.",
+    "Rate λ = 2 min⁻¹; the mean wait is 0.5 minutes."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "The probability of waiting at most one minute is 1 − exp(−2), approximately 0.86466472.",
+      "spec": {
+        "v": 1,
+        "kind": "distribution",
+        "title": "Exponential density",
+        "dist": "exponential",
+        "params": {
+          "lambda": 2
+        },
+        "shade": {
+          "from": 0,
+          "to": 1,
+          "label": "Wait at most 1 minute"
+        }
+      }
+    }
+  ],
+  "checks": [
+    {
+      "id": "check1",
+      "diagram": "fig1",
+      "kind": "probability",
+      "label": "P(X ≤ 1)",
+      "from": 0,
+      "to": 1,
+      "expected": 0.8646647167633873,
+      "tolerance": 1e-7
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "title": "A short process schedule",
+  "description": "A sequence of CPU scheduling events.",
+  "course": "Operating systems",
+  "assumptions": [
+    "Positions are evenly spaced by event index.",
+    "Spacing does not encode elapsed duration."
+  ],
+  "diagrams": [
+    {
+      "id": "fig1",
+      "caption": "Read the time labels for duration. Use a quantitative Gantt chart when interval lengths are part of the question.",
+      "spec": {
+        "v": 1,
+        "kind": "timeline",
+        "title": "Scheduling events",
+        "events": [
+          {
+            "label": "P1 starts",
+            "at": "t = 0"
+          },
+          {
+            "label": "P1 blocks",
+            "at": "t = 3"
+          },
+          {
+            "label": "P2 starts",
+            "at": "t = 3"
+          },
+          {
+            "label": "P1 resumes",
+            "at": "t = 8"
+          }
+        ]
+      }
+    }
+  ],
+  "checks": []
+}
