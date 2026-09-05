@@ -1,0 +1,2 @@
+# Preserve generated dependency strings; review maintained source instead of bundle noise.
+skills/studai-stem/scripts/runtime/* -whitespace linguist-generated=true
