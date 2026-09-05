@@ -3,30 +3,46 @@ on: [push, pull_request]
 permissions:
   contents: read
 jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Install pinned secret scanner
+        run: go install github.com/zricethezav/gitleaks/v8@v8.30.1
+      - name: Scan complete Git history
+        run: '"$(go env GOPATH)/bin/gitleaks" git . --log-opts="--all" --redact=100 --no-banner'
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           cache: npm
       - run: npm ci
+      - run: npm run check:release
+      - run: npm audit --audit-level=high
       - run: npx playwright install --with-deps chromium
       - run: npm run build
       - run: npm test
       - run: npm run gallery
       - name: Verify committed runtime matches source
         run: git diff --exit-code -- skills/studai-stem/scripts/runtime
-      - uses: astral-sh/setup-uv@v6
+      - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
       - name: Check scientific recipes
         run: |
           mkdir -p outputs/scientific
           for recipe in symbolic bode dipole ode fft dc-circuit; do
             uv run --locked --script skills/studai-stem/scripts/scientific.py "$recipe" --out "outputs/scientific/$recipe"
           done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
           name: example-atlas

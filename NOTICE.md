@@ -1,11 +1,11 @@
-Studai STEM contains owner-authorized adaptations from adam-shlomo/studai at commit
-a00925cdf09a1eb89bf238edcbdcf5475d4f6b05. See docs/provenance.json for source files.
+Studai STEM is copyright (c) 2026 Adam Shlomo and is released under the MIT License.
 
-The inspected source repository was private and did not include a license. No public
-redistribution license has been assigned here. A repository owner can decide release
-terms separately.
+This project adapts selected visualization code and tests from adam-shlomo/studai.
+The source files and inspected revision are recorded in docs/provenance.json.
+The MIT release applies to the code distributed in this repository; it does not change
+the visibility or license of the original Studai application.
 
-React, React DOM and Zod code is bundled with its dependency license notices in
-skills/studai-stem/scripts/runtime/DEPENDENCY-LICENSES.txt. Scientific dependencies are
-installed separately and retain their own licenses. No third-party university course
-materials are included.
+Bundled React, React DOM and Zod retain their respective copyright and license notices
+in skills/studai-stem/scripts/runtime/DEPENDENCY-LICENSES.txt and the adjacent LEGAL files.
+Scientific dependencies are installed separately under their own licenses. No third-party
+university course materials are distributed here.

@@ -88,5 +88,5 @@ The native 3D mesh uses approximate visibility ordering. General circuit solving
 matrices, PDE solvers and complex branch choices need suitable scientific code. Native
 SVG text is plain text; publication math typography needs a typesetting workflow.
 
-The source repository was private and had no license file. The new repository remains
-private for owner review; public distribution and its license are separate decisions.
+The original source application remains private. Studai STEM is released separately
+under MIT; see the [open-source readiness audit](OPEN-SOURCE-READINESS.md).

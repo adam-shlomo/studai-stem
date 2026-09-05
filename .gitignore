@@ -6,3 +6,16 @@ artifacts/
 *.log
 .DS_Store
 coverage/
+__pycache__/
+*.pyc
+.venv/
+*.pem
+*.key
+*.p12
+*.pfx
+*.bak*
+*.backup*
+*.orig
+*.rej
+.idea/
+.vscode/

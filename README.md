@@ -133,6 +133,9 @@ This product extracts and adapts Studai's mathematical parser, SVG visualizers a
 engine tests. The original app's accounts, authentication, course uploads, scraping,
 provider calls and deployment systems are excluded. See the
 [repository review](docs/REPO-REVIEW.md) and [provenance](docs/provenance.json).
-The source repo was private and had no license file at the inspected commit; no public
-redistribution license has been assigned to this product. Bundled third-party dependency
-licenses are retained separately.
+Studai STEM is open source under the [MIT License](LICENSE). The original application
+remains separate. Bundled dependency licenses are retained in the installed skill.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development and checks,
+[SECURITY.md](SECURITY.md) for private vulnerability reporting, and
+[the open-source release audit](docs/OPEN-SOURCE-READINESS.md) for the publication checks.

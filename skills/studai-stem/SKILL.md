@@ -2,7 +2,7 @@
 name: studai-stem
 description: Create accurate, editable STEM illustrations from equations and data. Use for university math plots, algorithm and data-structure diagrams, physics figures, electrical circuits, signals and control-system visuals, or correcting a technical diagram. Includes offline interactive HTML, SVG exports and explicit mathematical checks.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   runtime: "Node.js 22+; optional Python scientific recipes"
 ---
 

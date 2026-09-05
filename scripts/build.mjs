@@ -31,11 +31,9 @@ await copyFile("src/style.css", `${out}/style.css`);
 // Bundled code remains distributable without npm; include dependency licenses.
 let licenses = "";
 for (const name of ["react", "react-dom", "zod"]) {
-  try {
-    licenses +=
-      `\n===== ${name} =====\n` +
-      (await readFile(`node_modules/${name}/LICENSE`, "utf8"));
-  } catch {}
+  licenses +=
+    `\n===== ${name} =====\n` +
+    (await readFile(`node_modules/${name}/LICENSE`, "utf8"));
 }
 await writeFile(`${out}/DEPENDENCY-LICENSES.txt`, licenses);
 console.log("Built self-contained Node CLI and offline browser renderer.");

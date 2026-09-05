@@ -1,6 +1,6 @@
 {
   "name": "studai-stem",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reproducible STEM illustrations for Claude Code and Codex",
   "private": true,
   "type": "module",
@@ -13,7 +13,8 @@
     "test:browser": "node --test tests/browser.test.mjs",
     "examples": "node scripts/generate-examples.mjs",
     "gallery": "node scripts/gallery.mjs",
-    "check": "npm run build && npm test && npm run gallery"
+    "check": "npm run build && npm test && npm run gallery",
+    "check:release": "node scripts/check-release.mjs"
   },
   "dependencies": {
     "react": "19.2.8",
@@ -24,5 +25,13 @@
     "esbuild": "0.25.12",
     "playwright": "1.63.0",
     "prettier": "3.9.6"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adam-shlomo/studai-stem.git"
+  },
+  "bugs": {
+    "url": "https://github.com/adam-shlomo/studai-stem/issues"
   }
 }
